@@ -1,0 +1,31 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model List<TBLBOLUM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Bölümler</h2>
+
+<table class="table table-bordered ">
+    <tr>
+        <th>Bölüm ID</th>
+        <th>Bölüm Adı</th>
+        <th>Sİl</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.AD</td>
+            <td><a href="/Bolum/BolumSil/@ktg.ID/" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Bolum/BolumGetir/@ktg.ID/" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+
+    }
+
+</table>
+<a href="/Bolum/BolumEkle/" class="btn btn-primary">Yeni Bölüm Ekle</a>

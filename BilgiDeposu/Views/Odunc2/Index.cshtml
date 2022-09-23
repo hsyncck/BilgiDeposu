@@ -1,0 +1,30 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model List<TBLHAREKET>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Verilen Ders Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>İşlem ID</th>
+        <th>DersAdı</th>
+        <th>Öğrenci</th>
+        <th>Personel</th>
+      
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.TBLKITAP.AD</td>
+            <td>@k.TBLOGRENCI.AD&nbsp @k.TBLOGRENCI.SOYAD</td>
+            <td>@Convert.ToDateTime(k.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.IADETARIH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Odunc/Odunciade/@k.ID" class="btn btn-default" style="background-color:#64d8ca; color:white">Dersi İade Al</a></td>
+        </tr>
+    }
+
+</table>

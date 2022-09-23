@@ -1,0 +1,84 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model List<TBLMESAJLAR>
+@{
+    ViewBag.Title = "Görün";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+                    <h1>Mesajım</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Mesajlarım</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/AkademiMesaj/Index" class="btn btn-primary btn-block mb-3">Gelen Kutusuna Geri Dön</a>
+                    <div class="card">
+
+
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                @*@Html.Action("Partial1")*@
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Mesajım</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
+                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        @foreach (var prs in Model)
+                        {
+
+
+                            <div class="card-body p-0">
+                                <div class="mailbox-read-info">
+                                    <h5>@prs.KONU</h5>
+                                    <h6>
+                                        From: @prs.GONDEREN
+                                        <span class="mailbox-read-time float-right">@prs.TARIH</span>
+                                    </h6>
+                                </div>
+
+                                <div class="mailbox-read-message">
+                                    <p>@prs.ICERIK</p>
+
+                                </div>
+
+                            </div>}
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+</body>
+</html>
+
+

@@ -1,0 +1,35 @@
+﻿@model BilgiDeposu.Models.Entitiy.TBLKITAP
+@{
+    ViewBag.Title = "DersGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("DersGuncelle", "Ders", FormMethod.Post))
+{
+    <div style=" margin-bottom:15px"></div>
+    <div class="form-group">
+        <div style="margin-bottom:15px">
+            <label>Ders ID</label>
+            @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Ders Adı</label>
+            @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Bölüm</label>
+            @Html.DropDownListFor(k => k.TBLBOLUM.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Akademisyen</label>
+            @Html.DropDownListFor(k => k.TBLAKADEMISYEN.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>AKTS</label>
+            @Html.TextBoxFor(k => k.AKTS, new { @class = "form-control" })
+        </div>
+        
+        <button class="btn btn-warning">Ders Bilgilerini Güncelle</button>
+        <input type="hidden" name="Durum" value="True" />
+    </div>
+}

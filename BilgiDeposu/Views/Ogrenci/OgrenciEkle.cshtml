@@ -1,0 +1,61 @@
+﻿@model BilgiDeposu.Models.Entitiy.TBLOGRENCI
+@{
+    ViewBag.Title = "OgrenciEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Ogrenci Adı</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Ogrenci Soyadı</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SOYAD, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail Adresi</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MAIL, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Adı</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KULLANICIADI, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SIFRE, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf Linki</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.FOTOGRAF, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.TELEFON, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Bölüm</label>
+        @*<input type="text" class="form-control" name="PERSONEL" />*@
+        @Html.DropDownListFor(k => k.TBLBOLUM.ID, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+       
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ogrenci Ekle</button>
+    </div>
+</form>
+

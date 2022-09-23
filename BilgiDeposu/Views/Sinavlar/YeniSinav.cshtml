@@ -1,0 +1,79 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model BilgiDeposu.Models.Entitiy.TBLNOTLAR
+@{ ViewBag.Title = "YeniSinav";
+    Layout = "~/Views/Shared/Layout.cshtml"; }
+
+
+
+<h1>Yeni Sınav Notu Ekleme Sayfası</h1>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Ders Adı</label>
+        @Html.DropDownListFor(k => k.TBLKITAP.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Adı</label>
+        @Html.DropDownListFor(k => k.TBLOGRENCI.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:10px">
+        <label>Sınav 1</label>
+        <input type="text" name="SINAV1" value="" class="form-control" />
+    </div><div style="margin-top:10px">
+        <label>Sınav 2</label>
+        <input type="text" name="SINAV2" value="" class="form-control" />
+    </div><div style="margin-top:10px">
+        <label>Proje</label>
+        <input type="text" name="PROJE" value="" class="form-control" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Ortalama</label>
+        <input type="text" name="ORTALAMA" value="" class="form-control" />
+    </div><div style="margin-top:10px">
+        <label>Durum</label>
+        <input type="text" name="DURUM" value="" class="form-control" />
+    </div>
+    @*<div style="margin-top:10px">
+            <label>Kulübü</label>
+            @Html.DropDownListFor(m => m.TLBKULUPLER.KULUPID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        </div>*@
+    @*<div style="margin-top:10px">
+            <label>Şehir Şeçimi</label>
+            @Html.DropDownList("Şehirler",
+           new[]
+           {
+               new SelectListItem(){ Value="1",Text="Ankara"},
+               new SelectListItem(){ Value="2",Text="İzmir"},
+               new SelectListItem(){ Value="3",Text="manisa"},
+           }, "Şehir Seçiniz...", new { @class = "form-control" })
+        </div>
+        <div>
+            <fieldset>
+                <label>Flm Seçin</label>
+                <select id="MovieType" name="MovieType">
+
+                    <option value="0"></option>
+
+                    <option value="1">Action</option>
+
+                    <option value="2">Drama</option>
+
+                    <option value="3">Comedy</option>
+
+                    <option value="4">Science Fiction</option>
+
+                </select>
+
+
+            </fieldset>
+        </div>
+        <div>
+
+           @Html.DropDownList("DersAd",null,"Ders Seçin", new { @class="form-control"})
+        </div>*@
+    <br />
+    <div style="margin-top:10px">
+        <button class="btn btn-info">Sınav Notu Ekle</button>
+
+    </div>
+</form>

@@ -1,0 +1,45 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLOGRENCI>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Öğrenciler</h2>
+@using (Html.BeginForm("Index", "Ogrenci", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Öğrencinin Adını Girin: &nbsp</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ogrenci ID</th>
+        <th>Ogrenci ADI</th>
+        <th>Ogrenci SOYADI</th>
+        <th>Bölüm</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>Ders GEÇMİŞİ</th>
+    </tr>
+    @foreach (var uye in Model)
+    {
+        <tr>
+            <td>@uye.ID</td>
+            <td>@uye.AD</td>
+            <td>@uye.SOYAD</td>
+            <td>@uye.TBLBOLUM.AD</td>
+            <td><a href="/Ogrenci/OgrenciSil/@uye.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ogrenci/OgrenciGetir/@uye.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Ogrenci/OgrenciDersGecmis/@uye.ID" class="btn btn-success" style="background-color:lightseagreen">Ogrenci Ders Geçmişi</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+
+<a href="/Ogrenci/OgrenciEkle/" class="btn btn-primary">Yeni Ogrenci Ekle</a>
+

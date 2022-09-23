@@ -1,0 +1,27 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model  List<TBLHAREKET>
+@{
+    ViewBag.Title = "OgrenciDersGecmis";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ogrenci: @ViewBag.u1</h2>
+<br />
+<table class="table table-danger">
+    <tr>
+        <th>Ders Adı</th>
+        <th>Personel</th>
+        <th>Ders Alış Tarihi</th>
+        <th>Ders Teslim Tarihi</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TBLKITAP.AD</td>
+            <td>@x.TBLPERSONEL.PERSONEL</td>
+            <td>@Convert.ToDateTime(x.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.UYEGETIRTARIH).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+

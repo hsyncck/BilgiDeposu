@@ -1,0 +1,43 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model List<TBLKITAP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Dersler</h2>
+
+@using (Html.BeginForm("Index", "Ders", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Dersin Adını Girin: &nbsp</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ders Adı</th>
+        <th>Ders Öğretmeni</th>
+        <th>Bölümü</th>
+        <th>AKTS</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.AD</td>
+            <td>@k.TBLAKADEMISYEN.AD&nbsp @k.TBLAKADEMISYEN.SOYAD</td>
+            <td>@k.TBLBOLUM.AD</td>
+            <td>@k.AKTS</td>
+            <td><a href="/Ders/DersSil/@k.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ders/DersGetir/@k.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Ders/DersEkle" class="btn btn-primary">Yeni Ders Ekle</a>
+

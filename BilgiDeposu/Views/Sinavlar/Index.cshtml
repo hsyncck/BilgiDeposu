@@ -1,0 +1,44 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@model List<TBLNOTLAR>
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml"; }
+
+<h1>Not Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ders</th>
+        <th>Öğrenci</th>
+        <th>Sınav 1</th>
+        <th>Sınav 2</th>
+        <th>Proje</th>
+        <th>Ortalama</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var X in Model)
+        {
+<tr>
+    <td>@X.NOTID</td>
+    <td>@X.TBLKITAP.AD</td>
+    <td>@X.TBLOGRENCI.AD  @X.TBLOGRENCI.SOYAD</td>
+    <td>@X.SINAV1</td>
+    <td>@X.SINAV2</td>
+    <td>@X.PROJE</td>
+    <td>@X.ORTALAMA</td>
+    <td>@X.DURUM</td>
+    <td>
+        <a href="/Sinavlar/SinavGetir/@X.NOTID" class="btn btn-success">Güncelle</a>
+        <a href="/Sinavlar/KategoriSil/@X.NOTID" class="btn btn-danger">Sil</a>
+    </td>
+</tr>
+}
+
+    </tbody>
+</table>
+<a href="/Sinavlar/YeniSinav" class="btn btn-primary">Yeni Sınav Notu Ekle</a>
+

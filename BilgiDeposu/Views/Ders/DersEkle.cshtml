@@ -1,0 +1,34 @@
+﻿@model BilgiDeposu.Models.Entitiy.TBLKITAP
+@{
+    ViewBag.Title = "DersEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Ders Adı</label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Bölüm Adı</label>
+        @Html.DropDownListFor(k => k.TBLBOLUM.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Ders Öğretmeni</label>
+        @Html.DropDownListFor(k => k.TBLAKADEMISYEN.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>AKTS</label>
+        @Html.TextBoxFor(k => k.AKTS, new { @class = "form-control" })
+    </div><div style="margin-top:15px">
+    <label>"DERS EKLENDİKTEN SONRA GÜNCELLE EKRANINDAN GÜNCELLENMESİ GEREKMEKTEDİR"</label>
+    
+</div>
+  
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ders Ekle</button>
+    </div>
+    @*<input type="hidden" name="Durum" value="True" />*@
+</form>
+

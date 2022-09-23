@@ -1,0 +1,29 @@
+﻿@model BilgiDeposu.Models.Entitiy.TBLAKADEMISYEN
+@{
+    ViewBag.Title = "AkademisyenEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Akademisyen Ekle</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Akademisyen Adı</label>
+        @Html.TextBoxFor(y => y.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.AD)
+    </div>
+    <div style="margin-top:15px">
+        <label>Akademisyen Soyadı</label>
+        @Html.TextBoxFor(y => y.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.SOYAD)
+    </div>
+    <div style="margin-top:15px">
+        <label>Akademisyen Detay Bilgileri</label>
+        @Html.TextAreaFor(y => y.DETAY, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Akademisyen Ekle</button>
+    </div>
+</form>
+

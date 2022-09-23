@@ -1,0 +1,36 @@
+﻿@using BilgiDeposu.Models.Entitiy;
+@model List<TBLNOTLAR>
+
+
+@{
+    ViewBag.Title = "Notlarim";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Notlarım</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Not ID</th>
+        <th>Ders Adı</th>
+        <th>OGR NO</th>
+        <th>VİZE</th>
+        <th>FİNAL</th>
+        <th>Proje</th>
+        <th>ORTALAMA</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.DERSID</td>
+            <td>@prs.TBLKITAP.AD</td>
+            <td>@prs.OGRID</td>
+            <td>@prs.SINAV1</td>
+            <td>@prs.SINAV2</td>
+            <td>@prs.PROJE</td>
+            <td>@prs.ORTALAMA</td>
+        </tr>
+    }
+</table>
+
+

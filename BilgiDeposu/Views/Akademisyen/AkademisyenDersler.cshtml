@@ -1,0 +1,26 @@
+﻿@using BilgiDeposu.Models.Entitiy
+@{
+    ViewBag.Title = "AkademisyenKitaplar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Akademisyen: @ViewBag.y1</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Ders Adı</th>
+        <th>Bölüm</th>
+        <th>Akts</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.AD</td>
+            <td>@x.TBLBOLUM.AD</td>
+            <td>@x.AKTS</td>
+        </tr>
+    }
+</table>
+
